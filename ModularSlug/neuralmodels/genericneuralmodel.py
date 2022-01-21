@@ -26,5 +26,10 @@ class GenericNeuralModel:
         self.x[0] = x0
         self.t = 0
 
+    @property
+    def outputs(self):
+        '''The current values of the outputs'''
+        return self.x[self.t]
+
     def step(self):
         raise NotImplementedError

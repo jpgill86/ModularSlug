@@ -15,3 +15,7 @@ muscle_model = MyMuscleModel(params, n_steps, x0)
 aplysia = Aplysia(n_steps, neural_model, muscle_model)
 aplysia.run()
 aplysia.summarize()
+
+print()
+print('Final value of B3:', neural_model.outputs['B3'])
+print('Final value of I2:', muscle_model.outputs['I2'])
