@@ -51,6 +51,16 @@ class Aplysia:
         self._muscle_model = obj
         self._muscle_model.parent = self
 
+    @property
+    def neural_outputs(self):
+        '''The current values of the neural outputs'''
+        return self.neural_model.neural_outputs
+
+    @property
+    def muscle_outputs(self):
+        '''The current values of the muscle outputs'''
+        return self.muscle_model.muscle_outputs
+
     def run(self):
         for i in range(self.n_steps):
             self.neural_model.step()

@@ -17,5 +17,5 @@ aplysia.run()
 aplysia.summarize()
 
 print()
-print('Final value of B3:', neural_model.outputs['B3'])
-print('Final value of I2:', muscle_model.outputs['I2'])
+print('Final value of B3:', aplysia.neural_outputs['B3'])
+print('Final value of I2:', aplysia.muscle_outputs['I2'])

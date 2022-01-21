@@ -43,9 +43,14 @@ class GenericNeuralModel:
         self._parent = obj
 
     @property
-    def outputs(self):
-        '''The current values of the outputs'''
+    def neural_outputs(self):
+        '''The current values of the neural outputs'''
         return self.x[self.t]
+
+    @property
+    def muscle_outputs(self):
+        '''The current values of the muscle outputs'''
+        return self.parent.muscle_outputs
 
     def step(self):
         raise NotImplementedError
