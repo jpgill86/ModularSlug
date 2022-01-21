@@ -11,6 +11,7 @@ class GenericNeuralModel:
     ]
 
     def __init__(self, params, n_steps, x0):
+        self._parent = None
 
         if not isinstance(x0, np.ndarray) or x0.dtype != self.neural_outputs_dtype:
             try:
@@ -25,6 +26,21 @@ class GenericNeuralModel:
         self.x = np.zeros(n_steps+1, dtype=self.neural_outputs_dtype)
         self.x[0] = x0
         self.t = 0
+
+    @property
+    def parent(self):
+        # defining this property is required for creating its custom setter
+        return self._parent
+
+    @parent.setter
+    def parent(self, obj):
+        # ensure parent can only be set to an instance of Aplysia or to None
+        from ..aplysia import Aplysia
+        if not isinstance(obj, (Aplysia, type(None))):
+            raise TypeError('tried to set parent to an incompatible '
+                            f'object type: {obj.__class__.__name__}')
+
+        self._parent = obj
 
     @property
     def outputs(self):

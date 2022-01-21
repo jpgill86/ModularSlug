@@ -25,7 +25,12 @@ class Aplysia:
             raise TypeError('tried to set neural_model to an incompatible '
                             f'object type: {obj.__class__.__name__}')
 
+        # if there is an old neural_model, first unset its parent
+        if self._neural_model is not None:
+            self._neural_model.parent = None
+
         self._neural_model = obj
+        self._neural_model.parent = self
 
     @property
     def muscle_model(self):
@@ -39,7 +44,12 @@ class Aplysia:
             raise TypeError('tried to set muscle_model to an incompatible '
                             f'object type: {obj.__class__.__name__}')
 
+        # if there is an old muscle_model, first unset its parent
+        if self._muscle_model is not None:
+            self._muscle_model.parent = None
+
         self._muscle_model = obj
+        self._muscle_model.parent = self
 
     def run(self):
         for i in range(self.n_steps):
