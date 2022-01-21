@@ -1,2 +1,2 @@
-from .genericneuralmodel import GenericNeuralModel, neural_outputs_dtype
+from .genericneuralmodel import GenericNeuralModel
 from .myneuralmodel import MyNeuralModel

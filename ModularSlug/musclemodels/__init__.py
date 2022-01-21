@@ -1,2 +1,2 @@
-from .genericmusclemodel import GenericMuscleModel, muscle_outputs_dtype
+from .genericmusclemodel import GenericMuscleModel
 from .mymusclemodel import MyMuscleModel
